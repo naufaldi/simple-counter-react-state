@@ -31,7 +31,14 @@ const useLocalStorage = (initialState, key) => {
 
 const Counter = ({ max, step }) => {
   const [count, setCount] = useLocalStorage(0, 'count');
+  // Nilai / value sebelumnys
+  const countRef = React.useRef();
 
+  let message="";
+  if(countRef.current < count ) message = "Higher";
+  if(countRef.current > count) message = "Lower";
+
+  countRef.current = countr;
   const increment = () => {
     setCount(c => {
       if (c >= max) return c;
@@ -52,6 +59,7 @@ const Counter = ({ max, step }) => {
 
   return (
     <div className="Counter">
+    <p>{message}</p>
       <p className="count">{count}</p>
       <section className="controls">
         <button onClick={increment}>Increment</button>
