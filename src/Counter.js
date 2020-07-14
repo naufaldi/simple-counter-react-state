@@ -38,7 +38,7 @@ const Counter = ({ max, step }) => {
   if(countRef.current < count ) message = "Higher";
   if(countRef.current > count) message = "Lower";
 
-  countRef.current = countr;
+  countRef.current = count;
   const increment = () => {
     setCount(c => {
       if (c >= max) return c;
